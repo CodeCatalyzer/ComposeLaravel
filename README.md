@@ -169,5 +169,8 @@ services:
 Your docker desktop app will look like this: 
 ![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/afaa6b78-1910-478b-b85c-2847f941101c)
 
+![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/91fe40f1-b6ce-4c24-8509-9dec19d0409d)
+![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/afe7b317-2a98-420c-bc37-a04a2f01582a)
 
-  
+To stop, run the command: `docker compose down`
+The moment you want to start programming again you only need to run `docker compose up` and all the data and code will be back.
