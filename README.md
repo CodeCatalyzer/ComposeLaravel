@@ -25,7 +25,7 @@ networks:
   ```
   
   Really easy for now right? Well it will not get much harder
-  #Services
+  # Services
   Services are the components of the container, just imagine them as different pieces of lego building something.
   ## PHP / laravel
   ```php
@@ -37,7 +37,8 @@ networks:
    # Makes the container use the myNetwork network
     networks:
       - myNetwork
-   # Only run this container, after the mysql, node and composer have been runned. This makes sure the application doesnt go live without, for      example, having a connection with the database
+   # Only run this container, after the mysql, node and composer have been runned. This makes sure the application doesnt go live without,
+   for example, having a connection with the database
     depends_on:
       - mysql
       - node
@@ -48,8 +49,8 @@ networks:
       # Listens to port 8080:80
     ports:
       - 8080:80
-    ```
+    ``` 
     
-    ## MySQL
+    # MySQL
 
   
