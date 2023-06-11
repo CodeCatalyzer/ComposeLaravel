@@ -175,4 +175,23 @@ Your docker desktop app will look like this:
 To stop, run the command: `docker compose down`
 The moment you want to start programming again you only need to run `docker compose up` and all the data and code will be back.
 
-Now the node and composer files will exite after they have run the commands. Adding `sleep infinity`
+
+## Running Node and Composer commands in terminal
+Now the node and composer files will exite after they have run the commands. To keep the container alive, add an entrypoint
+with the command `Sleep Infinity`. This will make sure the containers stay alive and you can use npm and composer commands during development. 
+```php
+ composer:
+    container_name: composer
+    image: composer:latest
+    volumes:
+      - ./src/:/var/app/
+    working_dir: /var/app/
+    command: composer install
+    entrypoint: sleep infinity
+```
+![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/3bd314ac-8ff4-439c-8a67-b3048bdcacc8)
+
+## Artisan commands
+You can still use the artisan commands in the terminal the way we did last time: 
+![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/76d9caf5-327a-475c-baf5-1add5a1c9f2d)
+
