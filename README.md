@@ -61,6 +61,9 @@ networks:
     # Use the myNetwork network
     networks:
       - myNetwork
+    # Stores the data in the mysql folder inside the application. This way the data isn't lost everytime you run the application.
+    volumes:
+      - ./mysql:/var/lib/mysql
     # Set the environment variables password and database
     environment:
       - "MYSQL_ROOT_PASSWORD=aPassword"
@@ -90,7 +93,7 @@ networks:
     # Runs the commands npm install and npm run dev
     command: npm install && npm run dev
   ```
-  ##Composer
+  ## Composer  
   Same way as node:
   ```php
    composer:
@@ -102,5 +105,69 @@ networks:
     command: composer install
   ```
   
- 
+ The complete code will look like this: 
+```php
+ version: '3'
+
+# Setting up the network
+networks:
+  myNetwork:
+    driver: bridge
+    
+
+# Setting up the services (containers)
+services:
+  laravel:
+    container_name: myapp
+    build: ./
+    networks:
+      - myNetwork
+    depends_on:
+      - mysql
+      - node
+      - composer
+    volumes:
+      - ./src/:/var/www/html/
+    ports:
+      - 8080:80
+
+  mysql:
+    container_name: aServer
+    image: mysql:8.0
+    networks:
+      - myNetwork
+    environment:
+      - "MYSQL_ROOT_PASSWORD=aPassword"
+      - "MYSQL_DATABASE=aDatabase"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+
+  node:
+    container_name: node
+    image: node:latest
+    networks:
+      - myNetwork
+    volumes:
+      - ./src/:/var/app/
+    working_dir: /var/app/
+    command: npm install && npm run dev
+
+  composer:
+    container_name: composer
+    image: composer:latest
+    volumes:
+      - ./src/:/var/app/
+    working_dir: /var/app/
+    command: composer install
+  ```
+  Now we can run the application by running the command:  `docker compose up`
+![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/a6fc45c4-024c-4edd-b661-118b505b44ff)  
+Your docker desktop app will look like this: 
+![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/afaa6b78-1910-478b-b85c-2847f941101c)
+
+
   
