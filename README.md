@@ -48,7 +48,7 @@ networks:
       # Listens to port 8080:80
     ports:
       - 8080:80
-    ```q
+    ```
     
     ## MySQL
 
