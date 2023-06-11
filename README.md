@@ -2,7 +2,7 @@
 Learn how to run a laravel project with docker-compose
 
 # Docker-compose.yml
-[Creating a laravel project trough dockerfiles](https://github.com/CodeCatalyzer/LAMP-Stack)
+[Creating a laravel project trough dockerfiles](https://github.com/CodeCatalyzer/LAMP-Stack)  
 For the first assignment i had to acces a laravel project trough different dockerfiles. Problem with this is that you have to run
 a lot of commands before you can start and it's very easy to make a typo. Therefore docker has invented the docker compose.
 Inside a docker-compose.yml file you can declare multiple images and run the application with a single command.
