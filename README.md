@@ -174,3 +174,5 @@ Your docker desktop app will look like this:
 
 To stop, run the command: `docker compose down`
 The moment you want to start programming again you only need to run `docker compose up` and all the data and code will be back.
+
+Now the node and composer files will exite after they have run the commands. Adding `sleep infinity`
