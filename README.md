@@ -49,8 +49,58 @@ networks:
       # Listens to port 8080:80
     ports:
       - 8080:80
-    ``` 
-    
-    # MySQL
-
+  ```
+  ## Mysql
+  
+  ```php
+  mysql:
+  # Set container name to aServer
+    container_name: aServer
+    # Use the mysql:8.0 image
+    image: mysql:8.0
+    # Use the myNetwork network
+    networks:
+      - myNetwork
+    # Set the environment variables password and database
+    environment:
+      - "MYSQL_ROOT_PASSWORD=aPassword"
+      - "MYSQL_DATABASE=aDatabase"
+     # Sets the port to 3306:3306
+    ports:
+      - 3306:3306
+     # Makes the database accesible from third party DBM applications
+    expose:
+      - 3306
+  ```
+  ## Node
+  ```php
+  node:
+    # Sets the container name to node
+    container_name: node
+    # Sets the image as the latest node image
+    image: node:latest
+    # Make use of the myNetwork network
+    networks:
+      - myNetwork
+    # Updates everytime something changes in - ./src/:/var/app/
+    volumes:
+      - ./src/:/var/app/
+    # Sets the working direction to /var/app/
+    working_dir: /var/app/
+    # Runs the commands npm install and npm run dev
+    command: npm install && npm run dev
+  ```
+  ##Composer
+  Same way as node:
+  ```php
+   composer:
+    container_name: composer
+    image: composer:latest
+    volumes:
+      - ./src/:/var/app/
+    working_dir: /var/app/
+    command: composer install
+  ```
+  
+ 
   
