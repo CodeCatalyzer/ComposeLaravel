@@ -166,7 +166,7 @@ services:
   ```
   Now we can run the application by running the command:  `docker compose up`
 ![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/a6fc45c4-024c-4edd-b661-118b505b44ff)  
-Your docker desktop app will look like this: 
+Your docker desktop app will look like this:  
 ![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/afaa6b78-1910-478b-b85c-2847f941101c)
 
 ![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/91fe40f1-b6ce-4c24-8509-9dec19d0409d)
@@ -192,6 +192,6 @@ with the command `Sleep Infinity`. This will make sure the containers stay alive
 ![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/3bd314ac-8ff4-439c-8a67-b3048bdcacc8)
 
 ## Artisan commands
-You can still use the artisan commands in the terminal the way we did last time: 
+You can still use the artisan commands in the terminal the way we did last time:   
 ![afbeelding](https://github.com/CodeCatalyzer/ComposeLaravel/assets/112801788/76d9caf5-327a-475c-baf5-1add5a1c9f2d)
 
